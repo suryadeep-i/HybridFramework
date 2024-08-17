@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.qa.factory.DriverFactory;
-
 public class LoginPage {
 	
 	private WebDriver driver;
@@ -48,5 +46,14 @@ public class LoginPage {
 	public void clickOnLogin() {
 		mywait.until(ExpectedConditions.visibilityOfElementLocated(loginbutton));
 		driver.findElement(loginbutton).click();
+	}
+	/*
+	 * Method to perform the overallLogin
+	 */
+	public AccountsPage doLogin(String un, String pwd) {
+		driver.findElement(userName).sendKeys(un);
+		driver.findElement(password).sendKeys(pwd);
+		driver.findElement(loginbutton).click();
+		return new AccountsPage(driver);
 	}
 }

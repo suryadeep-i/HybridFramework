@@ -16,7 +16,7 @@
 		<java.version>1.8</java.version>
 		<junit.version>4.13.1</junit.version>
 		<cucumber.version>6.9.0</cucumber.version>
-		<maven.compiler.version>3.8.1</maven.compiler.version>
+		<maven.compiler.version>3.9.0</maven.compiler.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
 	</properties>
 
@@ -67,6 +67,15 @@
 			<version>6.14.3</version>
 			<scope>test</scope>
 		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-failsafe-plugin</artifactId>
+			<version>3.3.1</version>
+			<scope>test</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -116,24 +125,40 @@
 				</configuration>
 			</plugin>
 
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-failsafe-plugin</artifactId> 
-				<version>3.0.0-M3</version> <executions> <execution> <goals>
-			<goal>integration-test</goal> 
-				</goals> <configuration> UNCOMMENT - To add any exclusions if required
-			<excludes> 
-				<exclude>**/*IT*.java</exclude> </excludes> <includes> UNCOMMENT BELOW LINE 
-				- To execute feature files with a single runner
-			<include>**/MyTestRunner.java</include> 
-				UNCOMMENT BELOW LINE - To execute feature files with multiple runners
-			<include>**/*Runner.java</include> 
-				</includes> UNCOMMENT BELOW 3 LINES - To execute using parallel or combination 
-				option <parallel>methods</parallel> <threadCount>4</threadCount>
-			<perCoreThreadCount>true</perCoreThreadCount> 
-				UNCOMMENT BELOW 3 LINES - To execute using forking or combination option 
-				<forkCount>2</forkCount> <reuseForks>true</reuseForks>
-			<reportsDirectory>${project.build.directory}/failsafe-reports_${surefire.forkNumber}</reportsDirectory> 
-				</configuration> </execution> </executions> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+						<configuration>
+							<!--UNCOMMENT - To add any exclusions if required -->
+							<excludes>
+								<exclude>**/*IT*.java</exclude>
+							</excludes>
+							<includes>
+								<!--UNCOMMENT BELOW LINE - To execute feature files with a single runner -->
+								<include>**/MyTestRunner.java</include>
+								<!--UNCOMMENT BELOW LINE - To execute feature files with multiple runners -->
+								<include>**/*Runner.java</include>
+							</includes>
+							<!--UNCOMMENT BELOW 3 LINES - To execute using parallel or combination option -->
+							<parallel>methods</parallel>
+							<threadCount>4</threadCount>
+							<perCoreThreadCount>true</perCoreThreadCount>
+							<!--UNCOMMENT BELOW 3 LINES - To execute using forking or combination option -->
+							<!-- <forkCount>2</forkCount>
+							<reuseForks>true</reuseForks>
+							<reportsDirectory>
+								${project.build.directory}/failsafe-reports_${surefire.forkNumber}
+							</reportsDirectory> -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 
 		</plugins>

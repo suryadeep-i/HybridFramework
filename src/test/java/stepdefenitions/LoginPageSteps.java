@@ -1,9 +1,6 @@
 package stepdefenitions;
 
-import java.time.Duration;
-
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pages.LoginPage;
 import com.qa.factory.DriverFactory;
