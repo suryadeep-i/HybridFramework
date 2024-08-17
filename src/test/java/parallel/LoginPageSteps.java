@@ -1,4 +1,4 @@
-package stepdefenitions;
+package parallel;
 
 import org.junit.Assert;
 

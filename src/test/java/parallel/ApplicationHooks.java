@@ -1,4 +1,4 @@
-package apphooks;
+package parallel;
 
 import java.util.Properties;
 
